@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../css/admindashboard.css";
+import "../css/AdminDashboard.css";
 
 import AddProduct from "../componants/addProduct";
 import ViewAllProducts from "../componants/ViewAllProduct";
