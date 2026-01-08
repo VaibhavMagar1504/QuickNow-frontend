@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/home.css";
 import { getAllProducts, searchProducts } from "../services/productServices";
-import heroImage from "../assets/Shop.jpg";
+import heroImage from "../assets/shop.jpg";
 import NavBar from "../componants/NavBar";
 
 function HomePage() {

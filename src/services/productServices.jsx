@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8071"; // your Spring Boot backend
+const BASE_URL = import.meta.env.VITE_API_URL;
+ // your Spring Boot backend
 
 // Get all products
 export const getAllProducts = async () => {
