@@ -1,0 +1,207 @@
+/* ------------------ General Container ------------------ */
+.ud-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background: #f9fafc;
+}
+
+/* ------------------ Navbar ------------------ */
+/* Title */
+.ud-title {
+  margin-top:17vh;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+/* ------------------ Product Grid (UPDATED) ------------------ */
+.ud-products {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Desktop: 5 per row */
+  gap: 20px;
+  margin-top: 25px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .ud-products {
+    grid-template-columns: repeat(3, 1fr); /* Tablet view */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .ud-products {
+    grid-template-columns: repeat(2, 1fr); /* Mobile: 2 per row */
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 400px) {
+  .ud-products {
+    grid-template-columns: 1fr; /* Very small phones */
+  }
+}
+
+/* ------------------ Product Card ------------------ */
+.ud-product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.ud-product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.ud-product-card h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ud-product-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+
+/* Image */
+.ud-product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.3s;
+}
+
+.ud-product-card:hover .ud-product-image {
+  transform: scale(1.05);
+}
+
+/* ------------------ Profile Side Panel ------------------ */
+.profile-panel {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 300px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.15);
+  padding: 25px;
+  transition: right 0.3s ease-in-out;
+  z-index: 2000;
+  border-radius: 15px 0 0 15px;
+}
+
+.profile-panel.open {
+  right: 0;
+}
+
+/* Close Button */
+.profile-close-btn {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+
+/* Panel Title */
+.profile-panel h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* User Info */
+.profile-panel p {
+  font-size: 15px;
+  margin: 6px 0;
+  color: #444;
+}
+
+/* Buttons inside Panel */
+.profile-panel-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ffcc00;
+  border: none;
+  color: #333;
+  margin-top: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-panel-btn:hover {
+  background: #e6b800;
+  transform: scale(1.03);
+}
+
+/* Logout inside panel */
+.profile-panel-btn.logout {
+  background: #e74c3c;
+  color: white;
+}
+
+.profile-panel-btn.logout:hover {
+  background: #c0392b;
+}
+
+/* ------------------ Responsive Navbar ------------------ */
+@media (max-width: 768px) {
+  .ud-navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  .ud-search {
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ud-search input {
+    width: 100%;
+  }
+
+  .ud-nav-links {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .ud-navbar {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .ud-search input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .ud-profile-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}

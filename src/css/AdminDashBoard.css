@@ -1,0 +1,187 @@
+/* ------------------ Container ------------------ */
+.admindashboard-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #eef2f7;
+  min-height: 100vh;
+  color: #1e1e2f;
+}
+
+/* ------------------ Navbar ------------------ */
+.admindashboard-navbar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.admindashboard-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1e90ff;
+  cursor: pointer;
+}
+
+.headingspan {
+  color: #ff7f50;
+}
+
+/* ------------------ Navbar Links ------------------ */
+.admindashboard-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.admindashboard-links span {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.admindashboard-links span:hover {
+  background: #1e90ff;
+  color: #fff;
+}
+
+.admindashboard-links .active {
+  background: #ff7f50;
+  color: white;
+  font-weight: bold;
+}
+
+/* Logout Button */
+.admindashboard-logout {
+  background: #1e90ff;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admindashboard-logout:hover {
+  background: #0b78e3;
+}
+
+/* ------------------ Main Content ------------------ */
+.admindashboard-content {
+  padding: 120px 40px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Welcome Section */
+.welcome-box {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease;
+}
+
+.welcome-box h2 {
+  color: #1e90ff;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.welcome-box .brand {
+  color: #ff7f50;
+}
+
+.welcome-box p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------ Responsive ------------------ */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #1e1e2f;
+}
+
+@media (max-width: 900px) {
+  .admindashboard-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-radius: 0 0 15px 15px;
+    border-top: 1px solid #ddd;
+    display: none;
+  }
+
+  .admindashboard-links.open {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .admindashboard-logo {
+    font-size: 1.5rem;
+  }
+
+  .admindashboard-links span {
+    font-size: 14px;
+  }
+
+  .admindashboard-logout {
+    width: 80%;
+    text-align: center;
+  }
+
+  .admindashboard-content {
+    padding: 100px 20px 20px;
+  }
+}

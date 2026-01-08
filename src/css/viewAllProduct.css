@@ -1,0 +1,139 @@
+/* Container */
+.viewproducts-container {
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.viewproducts-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.search-bar form {
+  display: flex;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+}
+
+.search-bar button {
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-bar button:hover {
+  background-color: #0066cc;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.products-table th,
+.products-table td {
+  padding: 12px 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+.products-table th {
+  background-color: #1e90ff;
+  color: #fff;
+}
+
+.products-table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.products-table tr:hover {
+  background-color: #e0f0ff;
+}
+
+/* Action buttons */
+.update-btn,
+.delete-btn {
+  padding: 5px 10px;
+  margin: 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.update-btn {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.update-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-bar form {
+    flex-direction: column;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .products-table th,
+  .products-table td {
+    padding: 8px 5px;
+    font-size: 12px;
+  }
+}

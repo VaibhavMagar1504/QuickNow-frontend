@@ -1,0 +1,135 @@
+.admin-users-container {
+  width: 95%;
+  max-width:1200px;
+  margin:0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Title */
+.admin-users-container h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Search Input */
+.search-input {
+  padding: 10px 14px;
+  width:65%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #cfcfcf;
+  background: #fafafa;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+/* Responsive Table Wrapper */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scroll on small screens */
+}
+
+/* Table */
+.users-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  min-width: 750px; /* Ensures table scrolls instead of breaking */
+}
+
+.users-table thead th {
+  padding: 14px;
+  background: #007bff;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Rows */
+.users-table tbody tr {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.05);
+  transition: transform 0.15s ease-in-out;
+}
+
+.users-table tbody tr:hover {
+  transform: scale(1.01);
+}
+
+/* Cells */
+.users-table td {
+  padding: 12px 10px;
+  text-align: center;
+  color: #444;
+  border-bottom: 1px solid #eee;
+}
+
+/* Remove border last */
+.users-table tbody tr td:last-child {
+  border-bottom: none;
+}
+
+/* Delete Button */
+.delete-btn {
+  padding: 8px 14px;
+  border: none;
+  background: #ff4d4d;
+  color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.delete-btn:hover {
+  background: #e60000;
+  transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .admin-users-container {
+    padding: 15px;
+  }
+
+  .admin-users-container h2 {
+    font-size: 22px;
+  }
+
+  .search-input {
+    width:75%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .admin-users-container {
+    padding: 10px;
+  }
+
+  .admin-users-container h2 {
+    font-size: 20px;
+  }
+
+  .users-table {
+    min-width: 650px; /* Force scroll */
+  }
+
+  .delete-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

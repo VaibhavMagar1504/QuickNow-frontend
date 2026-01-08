@@ -1,0 +1,152 @@
+.orders-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: -50px auto;
+  font-family: Arial, sans-serif;
+}
+
+.orders-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.orders-table-wrapper {
+  overflow-x: auto; /* Horizontal scroll on small screens */
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 900px; /* prevent collapsing */
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.orders-table th {
+  background-color:#007bff;
+  font-weight: bold;
+  color: white;
+}
+
+.orders-table tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+.orders-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.orders-table button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.orders-table button:first-child {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.orders-table button:first-child:hover {
+  background-color: #43a047;
+}
+
+.orders-table button:last-child {
+  background-color: #e53935;
+  color: white;
+}
+
+.orders-table button:last-child:hover {
+  background-color: #c62828;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .orders-table {
+    min-width: 800px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 992px) {
+  .orders-table {
+    min-width: 700px;
+    font-size: 12px;
+  }
+  .orders-table th,
+  .orders-table td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .orders-table {
+    min-width: 600px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 576px) {
+  .orders-table-wrapper {
+    overflow-x: auto; /* horizontal scroll */
+  }
+  .orders-table {
+    min-width: 500px;
+    font-size: 10px;
+  }
+  .orders-table th,
+  .orders-table td {
+    padding: 6px;
+  }
+}
+
+/* Optional: stacked view on very small screens */
+@media (max-width: 400px) {
+  .orders-table, 
+  .orders-table thead, 
+  .orders-table tbody, 
+  .orders-table th, 
+  .orders-table td, 
+  .orders-table tr {
+    display: block;
+  }
+
+  .orders-table thead tr {
+    display: none;
+  }
+
+  .orders-table tr {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .orders-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .orders-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    font-weight: bold;
+    text-align: left;
+  }
+}

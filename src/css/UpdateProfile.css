@@ -1,0 +1,112 @@
+/* ---------- MAIN CONTAINER ---------- */
+.up-container {
+  width: 100%;
+  min-height:100%;
+  margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 15px;
+  background: #eef1f6;
+  font-family: "Poppins", sans-serif;
+}
+
+.up-container h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* ---------- FORM CARD ---------- */
+.up-form {
+  width: 420px;
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Card Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- INPUT FIELDS ---------- */
+.up-form input {
+  width: 100%;
+  padding: 15px 5px;
+  border: 1.7px solid #dcdfe5;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #444;
+  background: #f9fafc;
+  transition: all 0.25s ease;
+}
+
+.up-form input:focus {
+  border-color: #007bff;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* ---------- ERROR TEXT ---------- */
+.error-text {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: -12px;
+  margin-bottom: -5px;
+  padding-left: 3px;
+  font-weight: 500;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+.up-form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.up-form button:hover {
+  background: linear-gradient(135deg, #005dc7, #00408f);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 91, 197, 0.3);
+}
+
+.up-form button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 520px) {
+  .up-form {
+    width: 92%;
+    padding: 25px 20px;
+  }
+
+  .up-container h2 {
+    font-size: 26px;
+  }
+}

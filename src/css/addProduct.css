@@ -1,0 +1,124 @@
+/* Container */
+.addproduct-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px 20px;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+}
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: -5px;
+}
+
+
+/* Heading */
+.addproduct-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1e90ff;
+  font-size: 28px;
+}
+
+/* Form Groups */
+.addproduct-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+/* Inputs and Textareas */
+.addproduct-form input,
+.addproduct-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.addproduct-form input:focus,
+.addproduct-form textarea:focus {
+  border-color: #1e90ff;
+}
+
+/* Textarea */
+.addproduct-form textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Checkbox */
+.addproduct-form .checkbox-group {
+  flex-direction: row;
+  align-items: center;
+}
+
+.addproduct-form .checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* File Upload Preview */
+.addproduct-form .image-preview {
+  margin-top: 10px;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Submit Button */
+.addproduct-form .submit-btn {
+  background-color: #1e90ff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+/* Labels */
+.addproduct-form label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Checkbox label spacing */
+.addproduct-form .checkbox-group label {
+  margin: 0;
+  cursor: pointer;
+}
+
+
+.addproduct-form .submit-btn:hover {
+  background-color: #0d6efd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .addproduct-container {
+    padding: 20px 15px;
+    margin: 15px;
+  }
+
+  .addproduct-container h2 {
+    font-size: 24px;
+  }
+}
