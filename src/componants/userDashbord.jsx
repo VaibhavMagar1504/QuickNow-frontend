@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllProducts, searchProducts } from "../services/productServices";
 import { getUserById } from "../services/UserService";
 import NavBar from "../componants/NavBar";
-import "../css/UserDashboard.css";
+import "../css/userDashboard.css";
 
 function UserDashboard() {
   const [products, setProducts] = useState([]);
