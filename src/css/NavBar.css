@@ -15,6 +15,7 @@
   border: 1px solid #ddd;
   box-shadow: 1px 1px 3px black;
   z-index: 1000;
+   overflow: visible; 
 }
 
 /* LOGO */
@@ -34,7 +35,27 @@
   align-items: center;
   gap: 20px;
 }
+/* Make dropdown float under Login button */
+.qn-desktop-right {
+  position: relative;
+}
 
+.qn-desktop-right .qn-login-options {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 180px;
+  z-index: 2000;
+}
+
+/* Mobile menu dropdown */
+.qn-menu .qn-login-options {
+  position: static;
+  width: 100%;
+}
+
+
+/* Desktop Search */
 .qn-dropdown-search {
   display: flex;
   gap: 8px;
@@ -69,6 +90,30 @@
   font-weight: bold;
 }
 
+/* LOGIN DROPDOWN */
+.qn-login-options {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.qn-login-options button {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  font-weight: bold;
+}
+
+.qn-login-options button:hover {
+  background: #f3f3f3;
+}
+
 /* HAMBURGER */
 .qn-hamburger {
   width: 30px;
@@ -100,7 +145,7 @@
 
 /* MOBILE SEARCH */
 .qn-mobile-search {
-  display: none; /* hidden on desktop */
+  display: none;
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -112,23 +157,14 @@
   border-radius: 8px;
   border: 1px solid #ccc;
 }
-.qn-mobile-search button.qn-mobile-search-btn {
-  padding: 7px 12px;
-  margin-left: 5px;
-  border-radius: 8px;
-  border: none;
-  background: #ff7f50;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-}
 
 /* MOBILE MENU */
 .qn-menu {
-  position: absolute;
-  top: 70px;
-  right: 0;
-  width: 100%;
+  position: fixed;
+  top: 90px; /* just below navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
   background: white;
   padding: 20px;
   border-radius: 12px;
@@ -139,15 +175,15 @@
   z-index: 999;
 }
 
-/* MOBILE MENU LOGIN BUTTON SMALL */
+/* MOBILE MENU LOGIN BUTTON */
 .qn-menu .qn-login-btn {
-  width: auto;          /* small width */
-  padding: 8px 15px;    /* smaller padding */
-  font-size: 1rem;    /* slightly smaller font */
-  align-self: center; /* align left */
+  width: auto;
+  padding: 8px 15px;
+  font-size: 1rem;
+  align-self: center;
 }
 
-/* MOBILE MEDIA */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .qn-desktop-right {
     display: none;
@@ -160,14 +196,22 @@
   .qn-mobile-search {
     display: flex;
     position: absolute;
-    left: 55%;
+    left: 60%;
     transform: translateX(-50%);
-    top:35%;
+    top: 35%;
     z-index: 1001;
   }
 
   .qn-menu.open {
     display: flex;
+    width:93%;
+  }
+
+  .qn-menu .qn-login-options {
+    width: auto;
+    min-width: 160px;
+    align-self: center;
+    margin-top: 5px;
   }
 
   .qn-navbar {
