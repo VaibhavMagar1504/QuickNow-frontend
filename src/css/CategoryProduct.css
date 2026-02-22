@@ -1,0 +1,99 @@
+/* ================= SUB CATEGORY SECTION ================= */
+
+.sub-category {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 10px 16px;          /* 👈 less top space */
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ================= SUB CARD ================= */
+
+.sub-card {
+  position: relative;
+  height: 260px;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.sub-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= IMAGE ================= */
+
+.sub-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.sub-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ================= TITLE ================= */
+
+.sub-card h3 {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+  z-index: 2;
+}
+
+/* ================= EXPLORE BUTTON ================= */
+
+.sub-card::after {
+  content: "Explore";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:24px;
+  text-shadow: 2px 2px 2px black;
+  color:rgb(211, 31, 211);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.sub-card:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .category-mobile .sub-card h3 {
+    display: none !important; 
+  }
+
+  .sub-card {
+    height: 220px;
+  }
+}
+
+/* ================= FADE ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

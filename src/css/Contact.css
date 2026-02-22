@@ -1,0 +1,92 @@
+/* ===== CONTACT SECTION (HOME THEME) ===== */
+.contact-container {
+  margin: 5px 15px;
+  padding: 35px 25px;              /* slightly reduced */
+  border-radius: 28px;             /* slightly reduced */
+  background: linear-gradient(135deg, #4b2dbf, #e24dc9);
+  color: #fff;
+  box-shadow: 0 11px 26px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+#contact {
+  scroll-margin-top: 120px;
+}
+/* Card */
+.contact-box {
+  max-width: 380px;                /* slightly reduced */
+  margin: auto;
+  background: #ffffff;
+  padding: 28px;                   /* reduced */
+  border-radius: 18px;
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.15);
+  color: #1e1e2f;
+}
+
+/* Heading */
+.contact-box h2 {
+  text-align: center;
+  margin-bottom:1px;              /* reduced */
+  font-size: 1.7rem;               /* slightly reduced */
+  color:rgb(7, 177, 245);
+}
+
+.contact-box p {
+  text-align: center;
+  margin-bottom: 18px;             /* reduced */
+  font-size: 0.95rem;              /* slightly reduced */
+  color: #666;
+}
+
+/* Form layout */
+.contact-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs */
+.contact-box input,
+.contact-box textarea {
+  padding: 11px 13px;              /* slightly reduced */
+  margin-bottom: 13px;             /* reduced */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 13.5px;               /* slightly reduced */
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-box textarea {
+  resize: none;                    /* keeps height proper */
+}
+
+/* Button */
+.contact-box button {
+  padding: 12px;                   /* reduced */
+  font-size: 15px;                 /* slightly reduced */
+  font-weight: 700;
+  border-radius: 28px;
+  border: none;
+  background: #ff7f50;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-box button:hover {
+  background: #f0b24d;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    margin: 45px 18px;
+    padding: 32px 18px;
+  }
+
+  .contact-box {
+    padding: 24px;
+  }
+}

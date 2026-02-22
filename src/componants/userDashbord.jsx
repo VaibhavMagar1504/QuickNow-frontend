@@ -4,11 +4,14 @@ import { getAllProducts, searchProducts } from "../services/productServices";
 import { getUserById } from "../services/UserService";
 import NavBar from "../componants/NavBar";
 import "../css/userDashboard.css";
+import CategoryProduct from "../componants/CategoryProduct";
+import Footer from "../componants/Footer";
 
 function UserDashboard() {
   const [products, setProducts] = useState([]);
   const [user, setUser] = useState(null);
   const [openPanel, setOpenPanel] = useState(false);
+   const [activeCategory, setActiveCategory] = useState("NEW");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -90,6 +93,96 @@ function UserDashboard() {
         <button className="profile-panel-btn logout" onClick={handleLogout}>Logout</button>
       </div>
 
+       <section className="category-strip">
+        <div
+          className={`category-item ${activeCategory === "NEW" ? "active" : ""}`}
+          onClick={() => setActiveCategory("NEW")}
+        >
+          <i className="fas fa-bolt"></i>
+          <span>New Arrivals</span>
+        </div>
+
+        <div
+          className={`category-item ${activeCategory === "MEN" ? "active" : ""}`}
+          onClick={() => setActiveCategory("MEN")}
+        >
+          <i className="fas fa-male"></i>
+          <span>Men's Wear</span>
+        </div>
+
+        <div
+          className={`category-item ${activeCategory === "WOMEN" ? "active" : ""}`}
+          onClick={() => setActiveCategory("WOMEN")}
+        >
+          <i className="fas fa-female"></i>
+          <span>Women's Wear</span>
+        </div>
+
+        <div
+          className={`category-item ${activeCategory === "ELECTRONICS" ? "active" : ""}`}
+          onClick={() => setActiveCategory("ELECTRONICS")}
+        >
+          <i className="fas fa-mobile-alt"></i>
+          <span>Electronics</span>
+        </div>
+      </section>
+
+      {/* STATIC SUB-CATEGORY SECTION */}
+      <CategoryProduct category={activeCategory} />
+
+      {/* FEATURED PRODUCTS (ONLY WHEN NO CATEGORY SELECTED) */}
+      {!activeCategory && (
+        <>
+          <h2 className="section-title">Featured Products</h2>
+
+          <div className="products">
+            {products.length === 0 ? (
+              <p>No products found...</p>
+            ) : (
+              products.map((product) => (
+                <div key={product.id} className="product-card">
+                  {product.imageUrl ? (
+                    <img
+                      src={`http://localhost:8071${product.imageUrl}`}
+                      alt={product.name}
+                      className="product-image"
+                    />
+                  ) : (
+                    <img
+                      src="https://via.placeholder.com/250x200?text=No+Image"
+                      alt="No Image"
+                      className="product-image"
+                    />
+                  )}
+
+                  <h3>{product.name}</h3>
+
+                  {product.brand && (
+                    <p>
+                      <b>Brand:</b> {product.brand}
+                    </p>
+                  )}
+
+                  {product.category && (
+                    <p>
+                      <b>Category:</b> {product.category}
+                    </p>
+                  )}
+
+                  <p>
+                    <b>Price:</b> ₹{product.price}
+                  </p>
+
+                  {product.desc && <p>{product.desc}</p>}
+
+                  <button onClick={handleBuyNow}>Buy Now</button>
+                </div>
+              ))
+            )}
+          </div>
+        </>
+      )}
+
       {/* PRODUCT LIST */}
       <h2 className="ud-title">All Products</h2>
       <div className="ud-products">
@@ -105,6 +198,7 @@ function UserDashboard() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

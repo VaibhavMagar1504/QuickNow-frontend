@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/NavBar.css";
 
-export default function NavBar({ user, setOpenPanel, onSearch }) {
+export default function NavBar({ user, setOpenPanel, onSearch, hideSearch }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [navKeyword, setNavKeyword] = useState("");
   const [showLoginOptions, setShowLoginOptions] = useState(false);
@@ -21,26 +21,28 @@ export default function NavBar({ user, setOpenPanel, onSearch }) {
 
   return (
     <nav className="qn-navbar">
-
+      {/* LOGO */}
       <h1
         className="qn-logo"
-        style={{ cursor: "pointer" }}
         onClick={() => navigate("/")}
+        style={{ cursor: "pointer" }}
       >
         Quick<span>Now</span>
       </h1>
 
-      {/* Mobile Search (NO BUTTON) */}
-      <form className="qn-mobile-search">
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={navKeyword}
-          onChange={handleLiveSearch}
-        />
-      </form>
+      {/* MOBILE SEARCH (HIDDEN ON HOME) */}
+      {!hideSearch && (
+        <form className="qn-mobile-search">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={navKeyword}
+            onChange={handleLiveSearch}
+          />
+        </form>
+      )}
 
-      {/* Hamburger */}
+      {/* HAMBURGER */}
       <button
         className={`qn-hamburger ${menuOpen ? "active" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
@@ -50,7 +52,7 @@ export default function NavBar({ user, setOpenPanel, onSearch }) {
         <span></span>
       </button>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <div className={`qn-menu ${menuOpen ? "open" : ""}`}>
         {user ? (
           <button className="qn-login-btn" onClick={() => setOpenPanel?.(true)}>
@@ -79,17 +81,20 @@ export default function NavBar({ user, setOpenPanel, onSearch }) {
         )}
       </div>
 
-      {/* Desktop Right */}
+      {/* DESKTOP RIGHT */}
       <div className="qn-desktop-right">
-        <form className="qn-dropdown-search" onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={navKeyword}
-            onChange={handleLiveSearch}
-          />
-          <button type="submit">Search</button>
-        </form>
+        {/* DESKTOP SEARCH (HIDDEN ON HOME) */}
+        {!hideSearch && (
+          <form className="qn-dropdown-search" onSubmit={handleSearch}>
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={navKeyword}
+              onChange={handleLiveSearch}
+            />
+            <button type="submit">Search</button>
+          </form>
+        )}
 
         {user ? (
           <button className="qn-login-btn" onClick={() => setOpenPanel?.(true)}>
@@ -117,7 +122,6 @@ export default function NavBar({ user, setOpenPanel, onSearch }) {
           </div>
         )}
       </div>
-
     </nav>
   );
 }

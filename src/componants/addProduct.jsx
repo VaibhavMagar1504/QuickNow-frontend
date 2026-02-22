@@ -51,9 +51,6 @@ export default function AddProduct() {
     setErrors(validationErrors);
   };
 
-  // ------------------------------------------
-  // 🔥 VALIDATION ON SUBMIT
-  // ------------------------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
 

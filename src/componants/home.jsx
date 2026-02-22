@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/home.css";
 import { getAllProducts, searchProducts } from "../services/productServices";
-import heroImage from "../assets/shop.jpg";
+import heroImage from "../assets/shoping1.png";
 import NavBar from "../componants/NavBar";
+import CategoryProduct from "../componants/CategoryProduct";
+import Contact from "../componants/Contact";
+import Footer from "../componants/Footer";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("NEW");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +26,6 @@ function HomePage() {
     }
   };
 
-  // 🔥 This handles NavBar search
   const handleSearch = async (keywordFromNav) => {
     if (!keywordFromNav || keywordFromNav.trim() === "") {
       fetchProducts();
@@ -42,116 +45,126 @@ function HomePage() {
 
   return (
     <div className="home-container">
+      {/* NAVBAR */}
+     <NavBar onSearch={handleSearch} hideSearch />
 
-      {/* Pass search function to NavBar */}
-      <NavBar onSearch={handleSearch} />
 
       {/* HERO SECTION */}
-      <section className="hero">
-        <div className="hero-left">
+      <section className="hero-new">
+        <div className="hero-new-left">
           <h1>
-            Shop Smarter with <span>QuickNow</span>
+            Online Shopping <br />
+            Made <span>Easy</span>
           </h1>
+
           <p>
-            Discover the latest products at unbeatable prices. Fast delivery,
-            trusted sellers, and top deals every day.
+            Fashion, electronics, and accessories — all in one place. Trusted
+            sellers. Fast delivery.
           </p>
-          <div className="hero-buttons">
-            <button onClick={handleLogin}>Start Shopping</button>
-          </div>
+
+          <button className="hero-cta" onClick={handleLogin}>
+            Start Shopping
+          </button>
         </div>
 
-        <div className="hero-right">
+        <div className="hero-new-right">
           <img src={heroImage} alt="Shopping Illustration" />
         </div>
       </section>
 
-      {/* FEATURED PRODUCTS */}
-      <h2 className="section-title">Featured Products</h2>
+      {/* CATEGORY STRIP */}
+      <section className="category-strip">
+        <div
+          className={`category-item ${activeCategory === "NEW" ? "active" : ""}`}
+          onClick={() => setActiveCategory("NEW")}
+        >
+          <i className="fas fa-bolt"></i>
+          <span>New Arrivals</span>
+        </div>
 
-      <div className="products">
-        {products.length === 0 ? (
-          <p>No products found...</p>
-        ) : (
-          products.map((product) => (
-            <div key={product.id} className="product-card">
+        <div
+          className={`category-item ${activeCategory === "MEN" ? "active" : ""}`}
+          onClick={() => setActiveCategory("MEN")}
+        >
+          <i className="fas fa-male"></i>
+          <span>Men's Wear</span>
+        </div>
 
-              {product.imageUrl ? (
-                <img
-                  src={`http://localhost:8071${product.imageUrl}`}
-                  alt={product.name}
-                  className="product-image"
-                />
-              ) : (
-                <img
-                  src="https://via.placeholder.com/250x200?text=No+Image"
-                  alt="No Image"
-                  className="product-image"
-                />
-              )}
+        <div
+          className={`category-item ${activeCategory === "WOMEN" ? "active" : ""}`}
+          onClick={() => setActiveCategory("WOMEN")}
+        >
+          <i className="fas fa-female"></i>
+          <span>Women's Wear</span>
+        </div>
 
-              <h3>{product.name}</h3>
+        <div
+          className={`category-item ${activeCategory === "ELECTRONICS" ? "active" : ""}`}
+          onClick={() => setActiveCategory("ELECTRONICS")}
+        >
+          <i className="fas fa-mobile-alt"></i>
+          <span>Electronics</span>
+        </div>
+      </section>
 
-              {product.brand && (
-                <p><b>Brand:</b> {product.brand}</p>
-              )}
-              {product.category && (
-                <p><b>Category:</b> {product.category}</p>
-              )}
+      {/* STATIC SUB-CATEGORY SECTION */}
+      <CategoryProduct category={activeCategory} />
 
-              <p><b>Price:</b> ₹{product.price}</p>
+      {/* FEATURED PRODUCTS (ONLY WHEN NO CATEGORY SELECTED) */}
+      {!activeCategory && (
+        <>
+          <h2 className="section-title">Featured Products</h2>
 
-              {product.desc && <p>{product.desc}</p>}
+          <div className="products">
+            {products.length === 0 ? (
+              <p>No products found...</p>
+            ) : (
+              products.map((product) => (
+                <div key={product.id} className="product-card">
+                  {product.imageUrl ? (
+                    <img
+                      src={`http://localhost:8071${product.imageUrl}`}
+                      alt={product.name}
+                      className="product-image"
+                    />
+                  ) : (
+                    <img
+                      src="https://via.placeholder.com/250x200?text=No+Image"
+                      alt="No Image"
+                      className="product-image"
+                    />
+                  )}
 
-              <button onClick={handleBuyNow}>Buy Now</button>
-            </div>
-          ))
-        )}
-      </div>
+                  <h3>{product.name}</h3>
 
-          <footer className="footer">
-  <div className="footer-wrapper">
-    {/* About / Logo */}
-    <div className="footer-section about">
-      <h2>Quick<span style={{color: "#e67812ff"}}>Now</span></h2>
-      <p>Shop smarter with QuickNow. Find top products, best deals, and fast delivery—right at your fingertips!</p>
-    </div>
+                  {product.brand && (
+                    <p>
+                      <b>Brand:</b> {product.brand}
+                    </p>
+                  )}
 
-    {/* Quick Links */}
-    <div className="footer-section links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/products">Products</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
+                  {product.category && (
+                    <p>
+                      <b>Category:</b> {product.category}
+                    </p>
+                  )}
 
-    {/* Contact */}
-    <div className="footer-section contact">
-      <h3>Contact</h3>
-      <p>Email: support@quicknow.com</p>
-      <p>Phone: +91 98765 43210</p>
-      <p>Address: 123 Quick Street, Mumbai, Maharashtra, India</p>
-    </div>
-  </div>
+                  <p>
+                    <b>Price:</b> ₹{product.price}
+                  </p>
 
-  {/* Social */}
- <div className="footer-social">
-  <a href="#" title="Facebook"><i className="fab fa-facebook-f"></i></a>
-  <a href="#" title="Twitter"><i className="fab fa-twitter"></i></a>
-  <a href="#" title="Instagram"><i className="fab fa-instagram"></i></a>
-  <a href="#" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-</div>
+                  {product.desc && <p>{product.desc}</p>}
 
+                  <button onClick={handleBuyNow}>Buy Now</button>
+                </div>
+              ))
+            )}
+          </div>
+        </>
+      )}
 
-  <div className="footer-bottom">
-    <p>© 2025 QuickNow. All rights reserved.</p>
-  </div>
-</footer>
-
-    
+      <Contact />
+      <Footer />
     </div>
   );
 }
