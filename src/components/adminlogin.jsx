@@ -11,24 +11,30 @@ function AdminLogin() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+
     try {
       const res = await adminLogin(username, password);
 
       if (res.status === "success") {
         alert("Admin Login Successful ✅");
-        localStorage.setItem("adminLoggedIn", true); // save login flag
+        localStorage.setItem("adminLoggedIn", "true");
         navigate("/admin/dashboard");
       } else {
         setError("Invalid credentials ❌");
       }
     } catch (err) {
-      setError("Something went wrong!");
+      setError("Something went wrong! Please try again.");
     }
   };
 
   return (
     <div className="admin-login-container">
-      <form className="admin-login-card" autoComplete="off" onSubmit={handleLogin}>
+      <form
+        className="admin-login-card"
+        autoComplete="off"
+        onSubmit={handleLogin}
+      >
         <h2>Admin Login</h2>
 
         {error && <p className="error">{error}</p>}
@@ -38,9 +44,7 @@ function AdminLogin() {
           placeholder="Admin Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          autoComplete="off"
           required
-          
         />
 
         <input
@@ -48,7 +52,6 @@ function AdminLogin() {
           placeholder="Admin Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          autoComplete="new-password"
           required
         />
 
