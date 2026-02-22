@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../componants/NavBar";
+import NavBar from "../components/NavBar";
 import { GetUserOrders } from "../services/productServices";
 import "../css/orderHistory.css";
 

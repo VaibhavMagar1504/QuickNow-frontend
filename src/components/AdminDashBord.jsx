@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../css/AdminDashBoard.css";
 
-import AddProduct from "../componants/addProduct";
-import ViewAllProducts from "../componants/ViewAllProduct";
-import ViewOrders from "../componants/viewOrder";
-import ShowUsers from "../componants/showUser";
+import AddProduct from "../components/addProduct";
+import ViewAllProducts from "../components/ViewAllProduct";
+import ViewOrders from "../components/viewOrder";
+import ShowUsers from "../components/showUser";
 
 export default function AdminDashboard() {
   const [activePage, setActivePage] = useState("dashboard");

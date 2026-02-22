@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "../css/home.css";
 import { getAllProducts, searchProducts } from "../services/productServices";
 import heroImage from "../assets/shoping1.png";
-import NavBar from "../componants/NavBar";
-import CategoryProduct from "../componants/CategoryProduct";
-import Contact from "../componants/Contact";
-import Footer from "../componants/Footer";
+import NavBar from "../components/NavBar";
+import CategoryProduct from "../components/CategoryProduct";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const [products, setProducts] = useState([]);

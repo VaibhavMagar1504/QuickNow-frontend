@@ -1,18 +1,17 @@
 import React from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./componants/home";
-import ProductDetail from "./componants/product";
-import AdminLogin from "./componants/adminlogin";
-import AdminDashboard from "./componants/AdminDashBord";
-import AddProduct from "./componants/addProduct";
-import ViewProducts from "./componants/ViewAllProduct";
-import UpdateProduct from "./componants/updateProduct";
-import LoginRegister from "./componants/userAutho";
-import UserDashboard from "./componants/userDashbord";
-import OrderHistory from "./componants/orderHistory";
-import UpdaterProfile from "./componants/UpdateProfile";
-import Contact from "./componants/Contact";
+import HomePage from "./components/home";
+import ProductDetail from "./components/product";
+import AdminLogin from "./components/adminlogin";
+import AdminDashboard from "./components/AdminDashBord";
+import AddProduct from "./components/addProduct";
+import ViewProducts from "./components/ViewAllProduct";
+import UpdateProduct from "./components/updateProduct";
+import LoginRegister from "./components/userAutho";
+import UserDashboard from "./components/userDashbord";
+import OrderHistory from "./components/orderHistory";
+import UpdaterProfile from "./components/UpdateProfile";
 
 
 function App() {

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllProducts, searchProducts } from "../services/productServices";
 import { getUserById } from "../services/UserService";
-import NavBar from "../componants/NavBar";
+import NavBar from "./NavBar";
 import "../css/userDashboard.css";
-import CategoryProduct from "../componants/CategoryProduct";
-import Footer from "../componants/Footer";
+import CategoryProduct from "./CategoryProduct";
+import Footer from "./Footer";
 
 function UserDashboard() {
   const [products, setProducts] = useState([]);
